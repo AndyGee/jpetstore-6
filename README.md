@@ -6,25 +6,25 @@ It is in no way a best practice application in regards to Java EE, rather a full
 
 ## Running sample under eclipse
 Follow the next steps to run the sample on [Apache TomEE](http://tomee.apache.org/index.html), by using eclipse IDE
-- Download and install a JDK, eclipse and [Apache TomEE](http://tomee.apache.org/index.html)
-- Run Eclipse
-- In eclipse, go to Help/Eclipse Marketplace
-- Install m2e plugin (maven)
-- Install m2e-wtp plugin (maven for wtp)
-- Check out the project from Git and import it into the workspace
-- A new project named "jpetstore-6" will be shown
-- Right click on jpetstore project and click on configure/convert to maven project
-- Right click on jpetstore project and select "run on server"
-- Select [Apache TomEE](http://tomee.apache.org/index.html) Server and set your installation directory
-- JPetStore home page should be shown
+ - Download and install a JDK, eclipse and [Apache TomEE](http://tomee.apache.org/index.html)
+ - Run Eclipse
+ - In eclipse, go to Help/Eclipse Marketplace
+ - Install m2e plugin (maven)
+ - Install m2e-wtp plugin (maven for wtp)
+ - Check out the project from Git and import it into the workspace
+ - A new project named "jpetstore-6" will be shown
+ - Right click on jpetstore project and click on configure/convert to maven project
+ - Right click on jpetstore project and select "run on server"
+ - Select [Apache TomEE](http://tomee.apache.org/index.html) Server and set your installation directory
+ - JPetStore home page should be shown
 
 ## Running with Apache TomEE
 Running JPetStore sample under [Apache TomEE](http://tomee.apache.org/index.html) (using maven).
-- Clone this repository
-- Open command prompt/shell and change to cloned directory
-- Issue following command to run project using [Apache TomEE](http://tomee.apache.org/index.html)
+ - Clone this repository
+ - Open command prompt/shell and change to cloned directory
+ - Issue following command to run project using [Apache TomEE](http://tomee.apache.org/index.html)
 
     mvn clean tomee:run
 
-- Run application in browser http://localhost:8080/jpetstore/ 
-- Press Ctrl-C to stop the server.
+ - Run application in browser http://localhost:8080/jpetstore/ 
+ - Press Ctrl-C to stop the server.
