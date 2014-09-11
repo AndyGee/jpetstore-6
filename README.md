@@ -24,7 +24,7 @@ Running JPetStore sample under [Apache TomEE](http://tomee.apache.org/index.html
 - Open command prompt/shell and change to cloned directory
 - Issue following command to run project using [Apache TomEE](http://tomee.apache.org/index.html)
 
-mvn clean tomee:run
+    mvn clean tomee:run
 
 - Run application in browser http://localhost:8080/jpetstore/ 
 - Press Ctrl-C to stop the server.
