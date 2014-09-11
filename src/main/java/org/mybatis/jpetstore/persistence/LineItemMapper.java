@@ -16,18 +16,17 @@
 
 package org.mybatis.jpetstore.persistence;
 
-import java.util.List;
-
 import org.mybatis.jpetstore.domain.LineItem;
+
+import java.util.List;
 
 /**
  * @author Eduardo Macarron
- *
  */
 public interface LineItemMapper {
 
-  List<LineItem> getLineItemsByOrderId(int orderId);
+    List<LineItem> getLineItemsByOrderId(int orderId);
 
-  void insertLineItem(LineItem lineItem);
+    void insertLineItem(LineItem lineItem);
 
 }

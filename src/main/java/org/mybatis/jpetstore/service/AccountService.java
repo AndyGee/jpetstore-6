@@ -24,37 +24,36 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Eduardo Macarron
- *
  */
 @Service
 public class AccountService {
 
-  @Autowired
-  private AccountMapper accountMapper;
+    @Autowired
+    private AccountMapper accountMapper;
 
-  public Account getAccount(String username) {
-    return accountMapper.getAccountByUsername(username);
-  }
-
-  public Account getAccount(String username, String password) {
-    return accountMapper.getAccountByUsernameAndPassword(username, password);
-  }
-
-  @Transactional
-  public void insertAccount(Account account) {
-    accountMapper.insertAccount(account);
-    accountMapper.insertProfile(account);
-    accountMapper.insertSignon(account);
-  }
-
-  @Transactional
-  public void updateAccount(Account account) {
-    accountMapper.updateAccount(account);
-    accountMapper.updateProfile(account);
-
-    if (account.getPassword() != null && account.getPassword().length() > 0) {
-      accountMapper.updateSignon(account);
+    public Account getAccount(final String username) {
+        return accountMapper.getAccountByUsername(username);
     }
-  }
+
+    public Account getAccount(final String username, final String password) {
+        return accountMapper.getAccountByUsernameAndPassword(username, password);
+    }
+
+    @Transactional
+    public void insertAccount(final Account account) {
+        accountMapper.insertAccount(account);
+        accountMapper.insertProfile(account);
+        accountMapper.insertSignon(account);
+    }
+
+    @Transactional
+    public void updateAccount(final Account account) {
+        accountMapper.updateAccount(account);
+        accountMapper.updateProfile(account);
+
+        if (account.getPassword() != null && account.getPassword().length() > 0) {
+            accountMapper.updateSignon(account);
+        }
+    }
 
 }

@@ -16,18 +16,17 @@
 
 package org.mybatis.jpetstore.persistence;
 
-import java.util.List;
-
 import org.mybatis.jpetstore.domain.Category;
+
+import java.util.List;
 
 /**
  * @author Eduardo Macarron
- *
  */
 public interface CategoryMapper {
 
-  List<Category> getCategoryList();
+    List<Category> getCategoryList();
 
-  Category getCategory(String categoryId);
+    Category getCategory(String categoryId);
 
 }

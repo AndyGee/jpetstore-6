@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Configuring a CDI Application
+
+An application that uses CDI must have a file named beans.xml.
+The file can be completely empty (it has content only in certain limited situations), but it must be present.
+For a web application, the beans.xml file must be in the WEB-INF directory.
+For EJB modules or JAR files, the beans.xml file must be in the META-INF directory.
+//-->
+<beans/>

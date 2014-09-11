@@ -1,5 +1,5 @@
-<%@ include file="../common/IncludeTop.jsp"%>
+<%@ include file="../common/IncludeTop.jsp" %>
 
-<stripes:messages />
+<stripes:messages/>
 
-<%@ include file="../common/IncludeBottom.jsp"%>
+<%@ include file="../common/IncludeBottom.jsp" %>

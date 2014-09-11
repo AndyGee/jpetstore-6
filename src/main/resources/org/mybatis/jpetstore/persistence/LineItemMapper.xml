@@ -14,20 +14,20 @@
        See the License for the specific language governing permissions and
        limitations under the License.
 -->
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.mybatis.jpetstore.persistence.LineItemMapper">
 
-  <cache />
+  <cache/>
 
   <select id="getLineItemsByOrderId" resultType="LineItem">
     SELECT
-      ORDERID,
-      LINENUM AS lineNumber,
-      ITEMID,
-      QUANTITY,
-      UNITPRICE
+    ORDERID,
+    LINENUM AS lineNumber,
+    ITEMID,
+    QUANTITY,
+    UNITPRICE
     FROM LINEITEM
     WHERE ORDERID = #{orderId}
   </select>

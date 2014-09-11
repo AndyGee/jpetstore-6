@@ -20,42 +20,41 @@ import java.io.Serializable;
 
 /**
  * @author Eduardo Macarron
- *
  */
 public class Category implements Serializable {
 
-  private static final long serialVersionUID = 3992469837058393712L;
+    private static final long serialVersionUID = 3992469837058393712L;
 
-  private String categoryId;
-  private String name;
-  private String description;
+    private String categoryId;
+    private String name;
+    private String description;
 
-  public String getCategoryId() {
-    return categoryId;
-  }
+    public String getCategoryId() {
+        return categoryId;
+    }
 
-  public void setCategoryId(String categoryId) {
-    this.categoryId = categoryId.trim();
-  }
+    public void setCategoryId(final String categoryId) {
+        this.categoryId = categoryId.trim();
+    }
 
-  public String getName() {
-    return name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setName(final String name) {
+        this.name = name;
+    }
 
-  public String getDescription() {
-    return description;
-  }
+    public String getDescription() {
+        return description;
+    }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public void setDescription(final String description) {
+        this.description = description;
+    }
 
-  public String toString() {
-    return getCategoryId();
-  }
+    public String toString() {
+        return getCategoryId();
+    }
 
 }
