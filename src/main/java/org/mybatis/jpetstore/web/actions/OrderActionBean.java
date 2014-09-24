@@ -61,7 +61,7 @@ public class OrderActionBean extends AbstractActionBean {
         CARD_TYPE_LIST = Collections.unmodifiableList(cardList);
     }
 
-    private net.sourceforge.stripes.action.ActionBeanContext context;
+    private transient net.sourceforge.stripes.action.ActionBeanContext context;
 
     public ActionBeanContext getContext() {
         return context;

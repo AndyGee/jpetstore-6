@@ -1,19 +1,19 @@
-/*
- *    Copyright 2010-2013 the original author or authors.
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
  *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
-
 package org.mybatis.jpetstore.web.actions;
 
 import net.sourceforge.stripes.action.ActionBeanContext;
@@ -26,12 +26,14 @@ import org.mybatis.jpetstore.domain.Item;
 import org.mybatis.jpetstore.domain.Product;
 import org.mybatis.jpetstore.service.CatalogService;
 
+import javax.ejb.Stateless;
 import java.util.List;
 
 /**
  * @author Eduardo Macarron
  */
 @SessionScope
+@Stateless
 public class CatalogActionBean extends AbstractActionBean {
 
     private static final long serialVersionUID = 5849523372175050635L;
@@ -59,7 +61,13 @@ public class CatalogActionBean extends AbstractActionBean {
     private Item item;
     private List<Item> itemList;
 
-    private net.sourceforge.stripes.action.ActionBeanContext context;
+    /**
+     * CDI Step 2 - Inject just about anything just about anywhere
+     */
+    @javax.inject.Inject
+    private com.tomitribe.ee.cdi.CdiPojo pojo;
+
+    private transient net.sourceforge.stripes.action.ActionBeanContext context;
 
     public ActionBeanContext getContext() {
         return context;
@@ -126,6 +134,11 @@ public class CatalogActionBean extends AbstractActionBean {
     }
 
     public List<Category> getCategoryList() {
+
+        final Category c = new Category();
+        c.setName(pojo.getAbsolutelyAnything());
+        categoryList.add(c);
+
         return categoryList;
     }
 

@@ -3,19 +3,24 @@
          xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
+
   <display-name>JPetStore</display-name>
   <description>Online Pet Store Sample Application</description>
+
   <context-param>
     <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
     <param-value>StripesResources</param-value>
   </context-param>
+
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/applicationContext.xml</param-value>
   </context-param>
+
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+
   <filter>
     <display-name>Stripes Filter</display-name>
     <filter-name>StripesFilter</filter-name>
@@ -31,18 +36,22 @@
       </param-value>
     </init-param>
   </filter>
+
   <filter-mapping>
     <filter-name>StripesFilter</filter-name>
     <servlet-name>StripesDispatcher</servlet-name>
     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
+
   <servlet>
     <servlet-name>StripesDispatcher</servlet-name>
     <servlet-class>net.sourceforge.stripes.controller.DispatcherServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
+
   <servlet-mapping>
     <servlet-name>StripesDispatcher</servlet-name>
     <url-pattern>*.action</url-pattern>
   </servlet-mapping>
+
 </web-app>

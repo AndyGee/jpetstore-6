@@ -57,7 +57,7 @@ public class AccountActionBean extends AbstractActionBean {
     private Account account = new Account();
     private List<Product> myList;
     private boolean authenticated;
-    private net.sourceforge.stripes.action.ActionBeanContext context;
+    private transient net.sourceforge.stripes.action.ActionBeanContext context;
 
     static {
         final List<String> langList = new ArrayList<String>();

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Configuring a CDI Application
+CDI Step 1
 
 An application that uses CDI must have a file named beans.xml.
 The file can be completely empty (it has content only in certain limited situations), but it must be present.

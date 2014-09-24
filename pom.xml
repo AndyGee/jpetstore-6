@@ -29,6 +29,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.spring>4.0.5.RELEASE</version.spring>
+    <version.tomee>1.7.2-SNAPSHOT</version.tomee>
   </properties>
 
   <scm>
@@ -57,7 +58,17 @@
 
   <dependencyManagement>
     <dependencies>
-      <!--We are going to be writing Arquillian unit tests.-->
+
+      <!--CDI Step 1-->
+      <!--Arquillian Step 1-->
+      <!--We are going to be writing unit tests and want this version consistent.-->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.11</version>
+      </dependency>
+
+      <!--Arquillian Step 2 - We are going to be writing Arquillian unit tests and want this version consistent.-->
       <dependency>
         <groupId>org.jboss.arquillian</groupId>
         <artifactId>arquillian-bom</artifactId>
@@ -65,10 +76,40 @@
         <scope>import</scope>
         <type>pom</type>
       </dependency>
+
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
+
+    <!--Arquillian Step 3 - Use JUnit for all unit tests.-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!--Arquillian Step 4 - Use the TomEE remote adapter for all Arquillian tests.-->
+    <dependency>
+      <groupId>org.apache.openejb</groupId>
+      <artifactId>arquillian-tomee-remote</artifactId>
+      <version>${version.tomee}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>commons-logging</artifactId>
+          <groupId>commons-logging</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!--Provides some useful util classes-->
+    <dependency>
+      <groupId>org.apache.openejb</groupId>
+      <artifactId>ziplock</artifactId>
+      <version>${version.tomee}</version>
+      <scope>test</scope>
+    </dependency>
+
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
@@ -169,8 +210,9 @@
     </dependency>
 
     <!--
-    We are going to be writing Java EE 6 components. Therefore, we need to add the Java EE 6 API to the classpath
-    so we can compile these components.
+    TomEE Step 2
+    We are going to be writing Java EE6 components. Therefore, we need to add the Java EE6 API to the classpath
+    so we can compile these components. The container provides this jar, so a scope of provided is OK.
 
     This is the official TomEE endorsed library.
     -->
@@ -178,16 +220,28 @@
       <groupId>org.apache.openejb</groupId>
       <artifactId>javaee-api</artifactId>
       <version>6.0-6</version>
+      <scope>provided</scope>
     </dependency>
 
     <!--
-    We are going to be writing Arquillian unit tests.
+    Arquillian Step 5 - We are going to be writing Arquillian unit tests.
     -->
     <dependency>
       <groupId>org.jboss.arquillian.junit</groupId>
       <artifactId>arquillian-junit-container</artifactId>
       <scope>test</scope>
     </dependency>
+
+    <!--
+    Arquillian Step 6 - We will want to try some real world client testing in our unit tests
+    -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.3.4</version>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -207,7 +261,7 @@
       </plugin>
 
       <!--
-      Arquillian prefers at least surefire version 2.17
+      Arquillian Step 7 - Arquillian prefers at least surefire version 2.17
       See https://developer.jboss.org/wiki/WhatVersionOfSurefireShouldIUseToRunMyArquillianTestsInAMavenBuild
       -->
       <plugin>
@@ -228,13 +282,12 @@
 
       <!--
       TomEE plugin which can ve used to run the project from the command line using: mvn tomee:run
-
       Full documentation can be found here - http://tomee.apache.org/maven/index.html
       -->
       <plugin>
         <groupId>org.apache.openejb.maven</groupId>
         <artifactId>tomee-maven-plugin</artifactId>
-        <version>1.7.0</version>
+        <version>${version.tomee}</version>
         <configuration>
           <tomeeClassifier>plus</tomeeClassifier>
         </configuration>

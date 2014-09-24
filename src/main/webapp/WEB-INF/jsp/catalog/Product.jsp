@@ -13,6 +13,8 @@
 
 <div id="Catalog">
 
+    <%--CDI Step 2--%>
+    <%--<h2>${actionBean.product.name}, if you watch closely it does ${cdipojo.absolutelyAnything}</h2>--%>
     <h2>${actionBean.product.name}</h2>
 
     <table>

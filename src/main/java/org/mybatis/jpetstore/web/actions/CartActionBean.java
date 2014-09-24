@@ -45,7 +45,7 @@ public class CartActionBean extends AbstractActionBean {
 
     private Cart cart = new Cart();
     private String workingItemId;
-    private net.sourceforge.stripes.action.ActionBeanContext context;
+    private transient net.sourceforge.stripes.action.ActionBeanContext context;
 
     public ActionBeanContext getContext() {
         return context;

@@ -53,7 +53,7 @@ public class OrderService {
         for (int i = 0; i < order.getLineItems().size(); i++) {
             final LineItem lineItem = (LineItem) order.getLineItems().get(i);
             final String itemId = lineItem.getItemId();
-            final Integer increment = new Integer(lineItem.getQuantity());
+            final Integer increment = Integer.valueOf(lineItem.getQuantity());
             final Map<String, Object> param = new HashMap<String, Object>(2);
             param.put("itemId", itemId);
             param.put("increment", increment);
