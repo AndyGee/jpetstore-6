@@ -15,11 +15,11 @@ For example, in Intellij IDEA:
  - Follow the steps in order.
 
 ## Trails:
-TomEE Step
-CDI Step
-REST Step
-WebService Step
-Arquillian Step
+ - TomEE Step - Start to use TomEE
+ - CDI Step - Introduce CDI into you application
+ - REST Step - Introduce RESTful WebServices into you application
+ - WebService Step - Introduce SOAP WebServices into you application
+ - Arquillian Step - Introduce Arquillian testing into you application
 
 ## Running sample under eclipse
 Follow the next steps to run the sample on [Apache TomEE](http://tomee.apache.org/index.html), by using eclipse IDE
