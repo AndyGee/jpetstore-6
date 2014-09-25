@@ -18,14 +18,26 @@
  */
 package com.tomitribe.jpetstore.client.ui;
 
+import com.tomitribe.ee.rest.ComplexType;
+import com.tomitribe.jpetstore.client.rs.ClientRs;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.URI;
 
-public class FormMain {
+public class FormMain implements ActionListener {
     private JPanel p_main;
     private JPanel p_top;
     private JPanel p_bottom;
     private JEditorPane txt_view;
+    private JButton bt_complex;
+    private JTextField txt_host;
+
+    public FormMain() {
+        bt_complex.addActionListener(this);
+    }
 
     public JPanel getMain() {
         return p_main;
@@ -36,6 +48,14 @@ public class FormMain {
 // >>> IMPORTANT!! <<<
 // DO NOT EDIT OR ADD ANY CODE HERE!
         $$$setupUI$$$();
+    }
+
+    @Override
+    public void actionPerformed(final ActionEvent e) {
+        if(bt_complex.equals(e.getSource())){
+            final ComplexType ct = new ClientRs().setUri(URI.create(txt_host.getText())).getComplexType();
+            System.out.println("ct = " + ct);
+        }
     }
 
     /**

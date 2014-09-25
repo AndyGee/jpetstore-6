@@ -34,7 +34,7 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 public class RestResource {
 
     @Inject
-    private CdiPojo cdiPojo; //Follow this trail 'CDI Step'
+    private CdiPojo cdiPojo; //Follow this trail using 'CDI Step'
 
     @GET
     public String hello() {

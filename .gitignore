@@ -1,8 +1,6 @@
-/target
+target
 /.settings
 /.classpath
 /.project
 /.idea
-/*.iml
 *.iml
-/client/target

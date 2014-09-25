@@ -27,11 +27,13 @@
   <url>http://tomee.apache.org</url>
 
   <modules>
+    <module>app</module>
     <module>client</module>
   </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.reportEncoding>UTF-8</project.build.reportEncoding>
     <version.spring>4.0.5.RELEASE</version.spring>
     <version.tomee>1.7.2-SNAPSHOT</version.tomee>
   </properties>
@@ -59,6 +61,77 @@
       <url>gitsite:git@github.com/AndyGee/jpetstore-6.git</url>
     </site>
   </distributionManagement>
+
+  <build>
+
+    <!--Just use management to declare versions and truly global plugin settings-->
+    <pluginManagement>
+
+      <plugins>
+
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.1</version>
+        </plugin>
+
+        <!--
+        Arquillian Step 7 - Arquillian prefers at least surefire version 2.17
+        See https://developer.jboss.org/wiki/WhatVersionOfSurefireShouldIUseToRunMyArquillianTestsInAMavenBuild
+        -->
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.17</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat6-maven-plugin</artifactId>
+          <version>2.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.2</version>
+        </plugin>
+
+        <!--
+        TomEE Step ?
+
+        TomEE plugin which can be used to run the project from the command line using: mvn tomee:run
+        Full documentation can be found here - http://tomee.apache.org/maven/index.html
+        -->
+        <plugin>
+          <groupId>org.apache.openejb.maven</groupId>
+          <artifactId>tomee-maven-plugin</artifactId>
+          <version>${version.tomee}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.6</version>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+
+    </plugins>
+
+  </build>
 
   <dependencyManagement>
     <dependencies>
@@ -105,7 +178,11 @@
       </exclusions>
     </dependency>
 
-    <!--Provides some useful util classes-->
+    <!--
+    TomEE Step ?
+
+    Optional. Just provides some useful util classes for testing
+    -->
     <dependency>
       <groupId>org.apache.openejb</groupId>
       <artifactId>ziplock</artifactId>
@@ -214,6 +291,7 @@
 
     <!--
     TomEE Step 2
+
     We are going to be writing Java EE6 components. Therefore, we need to add the Java EE6 API to the classpath
     so we can compile these components. The container provides this jar, so a scope of provided is OK.
 
@@ -246,66 +324,5 @@
     </dependency>
 
   </dependencies>
-
-  <build>
-    <finalName>jpetstore</finalName>
-
-    <!--pluginManagement></pluginManagement-->
-
-    <plugins>
-
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-
-      <!--
-      Arquillian Step 7 - Arquillian prefers at least surefire version 2.17
-      See https://developer.jboss.org/wiki/WhatVersionOfSurefireShouldIUseToRunMyArquillianTestsInAMavenBuild
-      -->
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.17</version>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat6-maven-plugin</artifactId>
-        <version>2.2</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.2</version>
-      </plugin>
-
-      <!--
-      TomEE plugin which can ve used to run the project from the command line using: mvn tomee:run
-      Full documentation can be found here - http://tomee.apache.org/maven/index.html
-      -->
-      <plugin>
-        <groupId>org.apache.openejb.maven</groupId>
-        <artifactId>tomee-maven-plugin</artifactId>
-        <version>${version.tomee}</version>
-        <configuration>
-          <tomeeClassifier>plus</tomeeClassifier>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.6</version>
-        <configuration>
-          <overwrite>true</overwrite>
-        </configuration>
-      </plugin>
-
-    </plugins>
-  </build>
 
 </project>

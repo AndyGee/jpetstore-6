@@ -28,8 +28,9 @@ public class ClientRs {
 
     private URI uri;
 
-    public void setUri(final URI uri) {
+    public ClientRs setUri(final URI uri) {
         this.uri = uri;
+        return this;
     }
 
     public ComplexType getComplexType() {

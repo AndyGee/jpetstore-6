@@ -36,7 +36,10 @@ import java.util.List;
 public class CatalogService {
 
     /**
-     * CDI Step 5 - Inject just about anything just about anywhere
+     * CDI Step 5 - Inject just about anything just about anywhere.
+     *
+     * We are only a bit restrained here due to Spring being in charge of the CDI scope
+     * but the goal should really be to break out of that.
      */
     @Inject
     public com.tomitribe.ee.cdi.CdiPojo cdiPojo;
