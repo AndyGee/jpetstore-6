@@ -37,8 +37,12 @@
     <property name="dataSource" ref="dataSource"/>
   </bean>
 
+  <!--
+  CDI Step 3 - Only really required for this application, as Spring still has it's claws in.
+  This just ensures that my namespace is scanned
+  -->
   <!-- enable component scanning and autowire (beware that this does not enable mapper scanning!) -->
-  <context:component-scan base-package="org.mybatis.jpetstore.service"/>
+  <context:component-scan base-package="org.mybatis.jpetstore.service,com.tomitribe"/>
 
   <!-- enable transaction demarcation with annotations -->
   <tx:annotation-driven/>
@@ -53,4 +57,5 @@
   <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
     <property name="basePackage" value="org.mybatis.jpetstore.persistence"/>
   </bean>
+
 </beans>

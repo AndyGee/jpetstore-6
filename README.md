@@ -4,6 +4,23 @@ JPetStore 6 is a full web application built on top of MyBatis 3, Spring 3 and St
 This version has been modified to include Java EE 6 features in order to demonstrate a transition from [Apache Tomcat 7.x](http://tomcat.apache.org/) to [Apache TomEE](http://tomee.apache.org/index.html)
 It is in no way a best practice application in regards to Java EE, rather a fully working pre-EE application running within an EE enabled environment.
 
+There are several trails that you can follow step by step. Just use your IDE to search for all steps in all files.
+
+For example, in Intellij IDEA:  
+ - Press CTRL+SHIFT+F and enter the trail you wish to follow, i.e 'TomEE Step' or 'CDI Step' 
+ - Select the scope 'Whole project'
+ - Uncheck the 'File mask'
+ - Click on 'Find'
+ - In the returned list expand all items
+ - Follow the steps in order.
+
+## Trails:
+TomEE Step
+CDI Step
+REST Step
+WebService Step
+Arquillian Step
+
 ## Running sample under eclipse
 Follow the next steps to run the sample on [Apache TomEE](http://tomee.apache.org/index.html), by using eclipse IDE
  - Download and install a JDK, eclipse and [Apache TomEE](http://tomee.apache.org/index.html)

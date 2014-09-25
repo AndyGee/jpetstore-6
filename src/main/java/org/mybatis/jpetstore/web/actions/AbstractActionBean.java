@@ -20,11 +20,13 @@ import net.sourceforge.stripes.action.ActionBean;
 import net.sourceforge.stripes.action.ActionBeanContext;
 import net.sourceforge.stripes.action.SimpleMessage;
 
+import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 
 /**
  * @author Eduardo Macarron
  */
+@SessionScoped
 abstract class AbstractActionBean implements ActionBean, Serializable {
 
     private static final long serialVersionUID = -1767714708233127983L;

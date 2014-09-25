@@ -14,13 +14,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+/**
+ * CDI Step 2 - Create a pojo and optionally give it a name.
+ */
 package com.tomitribe.ee.cdi;
 
-import javax.enterprise.context.ApplicationScoped;
 import java.io.Serializable;
 
 @javax.inject.Named("cdipojo") //Allows use in Unified Expression Language (EL)
-@ApplicationScoped
 public class CdiPojo implements Serializable {
 
     private String absolutelyAnything = "Something";

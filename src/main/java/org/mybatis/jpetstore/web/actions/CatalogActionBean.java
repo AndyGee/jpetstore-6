@@ -26,14 +26,12 @@ import org.mybatis.jpetstore.domain.Item;
 import org.mybatis.jpetstore.domain.Product;
 import org.mybatis.jpetstore.service.CatalogService;
 
-import javax.ejb.Stateless;
 import java.util.List;
 
 /**
  * @author Eduardo Macarron
  */
 @SessionScope
-@Stateless
 public class CatalogActionBean extends AbstractActionBean {
 
     private static final long serialVersionUID = 5849523372175050635L;
@@ -60,12 +58,6 @@ public class CatalogActionBean extends AbstractActionBean {
     private String itemId;
     private Item item;
     private List<Item> itemList;
-
-    /**
-     * CDI Step 2 - Inject just about anything just about anywhere
-     */
-    @javax.inject.Inject
-    private com.tomitribe.ee.cdi.CdiPojo pojo;
 
     private transient net.sourceforge.stripes.action.ActionBeanContext context;
 
@@ -134,11 +126,6 @@ public class CatalogActionBean extends AbstractActionBean {
     }
 
     public List<Category> getCategoryList() {
-
-        final Category c = new Category();
-        c.setName(pojo.getAbsolutelyAnything());
-        categoryList.add(c);
-
         return categoryList;
     }
 

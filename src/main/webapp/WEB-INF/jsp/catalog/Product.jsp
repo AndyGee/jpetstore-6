@@ -13,9 +13,9 @@
 
 <div id="Catalog">
 
-    <%--CDI Step 2--%>
-    <%--<h2>${actionBean.product.name}, if you watch closely it does ${cdipojo.absolutelyAnything}</h2>--%>
-    <h2>${actionBean.product.name}</h2>
+    <%--CDI Step 4 - Use the named pojo directly in EL--%>
+    <h2>${actionBean.product.name}, if you watch closely it does ${cdipojo.absolutelyAnything}</h2>
+    <%--<h2>${actionBean.product.name}</h2>--%>
 
     <table>
         <tr>

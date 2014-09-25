@@ -26,7 +26,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
-import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,10 +35,18 @@ import java.util.List;
 @Service
 public class CatalogService {
 
+    /**
+     * CDI Step 5 - Inject just about anything just about anywhere
+     */
+    @Inject
+    public com.tomitribe.ee.cdi.CdiPojo cdiPojo;
+
     @Autowired
     private CategoryMapper categoryMapper;
+
     @Autowired
     private ItemMapper itemMapper;
+
     @Autowired
     private ProductMapper productMapper;
 

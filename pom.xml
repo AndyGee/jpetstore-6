@@ -59,7 +59,6 @@
   <dependencyManagement>
     <dependencies>
 
-      <!--CDI Step 1-->
       <!--Arquillian Step 1-->
       <!--We are going to be writing unit tests and want this version consistent.-->
       <dependency>
