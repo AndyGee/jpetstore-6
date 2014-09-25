@@ -15,18 +15,31 @@
  *  limitations under the License.
  */
 /**
- * REST Step 1 - Representational state transfer Service
+ * REST Step 1 - Representational state transfer Service.
+ * Just add some rest annotations to a Pojo, the @Inject is just icing on the cake.
  */
 package com.tomitribe.ee.rest;
 
+import com.tomitribe.ee.cdi.CdiPojo;
+
+import javax.inject.Inject;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
 @Path("/myrest")
 public class RestResource {
 
+    @Inject
+    private CdiPojo cdiPojo; //Follow the trail 'CDI Step'
+
     @GET
     public String hello() {
         return "halo";
+    }
+
+    @POST
+    public String lowerCase(final String message) {
+        return "Hi REST!".toLowerCase();
     }
 }

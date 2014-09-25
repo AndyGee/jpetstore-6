@@ -45,26 +45,31 @@ public class TestArquillianHolyMoly {
 
     @Deployment(testable = false)
     public static WebArchive deploy() {
+
+        /**
+         * This looks nasty at first glance, but what we are doing here
+         */
+
+        final String xml = Descriptors.create(WebAppDescriptor.class)
+            .version(WebAppVersionType._3_0)
+            .getOrCreateServlet()
+            .servletName("jaxrs")
+            .servletClass(Application.class.getName())
+            .createInitParam()
+            .paramName(Application.class.getName())
+            .paramValue(Application.class.getName())
+            .up()
+            .up()
+            .getOrCreateServletMapping()
+            .servletName("jaxrs")
+            .urlPattern("/api")
+            .up()
+            .exportAsString();
+
         return ShrinkWrap.create(WebArchive.class, TestArquillianBasic.class.getName()) //Name is just convenient
             .addClass(TestArquillianBasic.class) //Add our classes to test
             .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml") //Turn on CDI
-
-            .setWebXML(new StringAsset(
-                Descriptors.create(WebAppDescriptor.class)
-                    .version(WebAppVersionType._3_0)
-                    .getOrCreateServlet()
-                    .servletName("jaxrs")
-                    .servletClass(Application.class.getName())
-                    .createInitParam()
-                    .paramName(Application.class.getName())
-                    .paramValue(Application.class.getName())
-                    .up()
-                    .up()
-                    .getOrCreateServletMapping()
-                    .servletName("jaxrs")
-                    .urlPattern("/api")
-                    .up()
-                    .exportAsString()));
+            .setWebXML(new StringAsset(                xml));
     }
 
     @Test
@@ -107,7 +112,7 @@ public class TestArquillianHolyMoly {
         final CloseableHttpClient httpClient = HttpClientBuilder.create().build();
         try {
 
-            final HttpResponse response = httpClient.execute(new HttpGet(new URI(url.toExternalForm() + "api/rest/bean")));
+            final HttpResponse response = httpClient.execute(new HttpGet(new URI(url.toExternalForm() + "api/myrest")));
             final String body = asString(response);
             Assert.assertEquals("hola", body);
 
