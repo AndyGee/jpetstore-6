@@ -20,11 +20,15 @@
 
   <groupId>org.mybatis</groupId>
   <version>6.0.2-SNAPSHOT</version>
-  <artifactId>jpetstore</artifactId>
-  <packaging>war</packaging>
+  <artifactId>jpetstore-tomee</artifactId>
+  <packaging>pom</packaging>
 
-  <name>JPetStore Demo 6</name>
-  <url>http://www.mybatis.org</url>
+  <name>JPetStore Demo 6 :: TomEE</name>
+  <url>http://tomee.apache.org</url>
+
+  <modules>
+    <module>client</module>
+  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,25 +38,25 @@
 
   <scm>
     <url>http://github.com/mybatis/jpetstore</url>
-    <connection>scm:git:ssh://github.com/mybatis/jpetstore.git</connection>
-    <developerConnection>scm:git:git+ssh://git@github.com/mybatis/jpetstore.git</developerConnection>
+    <connection>scm:git:ssh://github.com/AndyGee/jpetstore-6.git</connection>
+    <developerConnection>scm:git:git+ssh://git@github.com:AndyGee/jpetstore-6.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
   <issueManagement>
     <system>GitHub Issue Management</system>
-    <url>https://github.com/mybatis/jpetstore/issues</url>
+    <url>https://github.com/AndyGee/jpetstore-6/issues</url>
   </issueManagement>
 
   <ciManagement>
     <system>Travis CI</system>
-    <url>https://travis-ci.org/jpetstore/guice</url>
+    <url>https://http://ci.tomitribe.com/jpetstore-6</url>
   </ciManagement>
 
   <distributionManagement>
     <site>
       <id>github</id>
-      <url>gitsite:git@github.com/mybatis/jpetstore.git</url>
+      <url>gitsite:git@github.com/AndyGee/jpetstore-6.git</url>
     </site>
   </distributionManagement>
 
@@ -60,7 +64,7 @@
     <dependencies>
 
       <!--Arquillian Step 1-->
-      <!--We are going to be writing unit tests and want this version consistent.-->
+      <!--We are going to be writing unit tests and want this version consistent accross all modules.-->
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>

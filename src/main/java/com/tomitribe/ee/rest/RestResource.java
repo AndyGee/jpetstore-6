@@ -26,12 +26,15 @@ import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/myrest")
 public class RestResource {
 
     @Inject
-    private CdiPojo cdiPojo; //Follow the trail 'CDI Step'
+    private CdiPojo cdiPojo; //Follow this trail 'CDI Step'
 
     @GET
     public String hello() {
@@ -41,5 +44,12 @@ public class RestResource {
     @POST
     public String lowerCase(final String message) {
         return "Hi REST!".toLowerCase();
+    }
+
+    @Path("complex")
+    @GET
+    @Produces({APPLICATION_JSON})
+    public ComplexType getComplexType() {
+        return new ComplexType();
     }
 }
