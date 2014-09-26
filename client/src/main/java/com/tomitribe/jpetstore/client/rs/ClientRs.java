@@ -19,10 +19,14 @@
 package com.tomitribe.jpetstore.client.rs;
 
 import com.tomitribe.ee.rest.ComplexType;
+import com.tomitribe.jpetstore.client.ui.FormMain;
 import org.apache.cxf.jaxrs.client.WebClient;
+import org.apache.cxf.jaxrs.provider.json.JSONProvider;
 
 import javax.ws.rs.core.MediaType;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientRs {
 
@@ -33,11 +37,41 @@ public class ClientRs {
         return this;
     }
 
-    public ComplexType getComplexType() {
+    public ClientRs() {
+        super();
+    }
 
-        final WebClient webClient = WebClient.create(uri);
-        webClient.accept(MediaType.APPLICATION_JSON);
+    public void callComplexType(final FormMain formMain) {
 
-        return webClient.path("api/myrest/complex").get(ComplexType.class);
+        final Thread t = new Thread() {
+            public void run() {
+
+                ComplexType ct = null;
+
+                try {
+
+                    /**
+                     * REST Step ? - Call the REST service using a client API
+                     *
+                     * EE6 skipped a beat here by not defining a client API
+                     * This is a CXF client API, which makes sense as this is what TomEE uses
+                     */
+
+                    final List<Object> providers = new ArrayList<Object>();
+                    providers.add(new JSONProvider());
+
+                    final WebClient webClient = WebClient.create(uri.toASCIIString(), providers);
+                    webClient.accept(MediaType.APPLICATION_JSON);
+
+                    ct = webClient.path("api/myrest/complex").get(ComplexType.class);
+
+                } finally {
+                    formMain.setComplexType(ct);
+                }
+
+            }
+        };
+
+        t.start();
     }
 }

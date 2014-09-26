@@ -34,11 +34,11 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 public class RestResource {
 
     @Inject
-    private CdiPojo cdiPojo; //Follow this trail using 'CDI Step'
+    private CdiPojo cdiPojo;
 
     @GET
     public String hello() {
-        return "halo";
+        return "Halo";
     }
 
     @POST
@@ -46,10 +46,18 @@ public class RestResource {
         return "Hi REST!".toLowerCase();
     }
 
+    /**
+     * REST Step 2 - Something more complex
+     */
     @Path("complex")
     @GET
     @Produces({APPLICATION_JSON})
     public ComplexType getComplexType() {
-        return new ComplexType();
+        final ComplexType ct = new ComplexType();
+
+        ct.setName("Just a simple example");
+        ct.setDescription("But you get the picture of how complex it could be");
+
+        return ct;
     }
 }

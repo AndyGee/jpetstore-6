@@ -31,7 +31,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="localhost:8080"/>
+              <text value="http://localhost:8080"/>
             </properties>
           </component>
         </children>
