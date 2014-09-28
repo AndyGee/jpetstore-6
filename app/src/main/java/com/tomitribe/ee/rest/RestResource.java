@@ -33,12 +33,15 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 @Path("/myrest")
 public class RestResource {
 
+    /**
+     * CDI STEP 7 - Inject to your hearts content.
+     */
     @Inject
     private CdiPojo cdiPojo;
 
     @GET
     public String hello() {
-        return "Halo";
+        return cdiPojo.getAbsolutelyAnything();
     }
 
     @POST
@@ -47,7 +50,8 @@ public class RestResource {
     }
 
     /**
-     * REST Step 2 - Something more complex
+     * REST STEP 2 - Something complex, because we are not only going to need
+     * native types. Look at the class fot some detail.
      */
     @Path("complex")
     @GET

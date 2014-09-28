@@ -67,6 +67,11 @@ public class FormMain implements ActionListener {
 
     public void setComplexType(final ComplexType ct) {
 
+        /**
+         * REST STEP 5 - Nothing to do with REST here, but a nice example
+         * of ensuring cross thread safety.
+         */
+
         final FormMain fm = FormMain.this;
 
         final Runnable r = new Runnable() {
@@ -86,6 +91,12 @@ public class FormMain implements ActionListener {
     private void safeSetComplexType(final ComplexType ct) {
         try {
 
+            /**
+             * REST STEP 6 - Use the REST supplied object as you wish.
+             * Just going to display in our form for you to see.
+             *
+             * This is the end of the REST trail, have fun with it!
+             */
             final Document document = this.txt_view.getDocument();
             document.insertString(0, "\n", null);
             document.insertString(0, integer.getAndIncrement() + " - " + ct.getName() + " : " + ct.getDescription(), new SimpleAttributeSet());

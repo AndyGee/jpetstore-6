@@ -36,7 +36,7 @@ import java.util.List;
 public class CatalogService {
 
     /**
-     * CDI Step 5 - Inject just about anything just about anywhere.
+     * CDI STEP 5 - Inject just about anything just about anywhere.
      *
      * We are only a bit restrained here due to Spring being in charge of the CDI scope
      * but the goal should really be to break out of that.
@@ -72,7 +72,13 @@ public class CatalogService {
         return productMapper.getProductListByCategory(categoryId);
     }
 
-    public List<Product> searchProductList(final String keywords) {
+    public List<Product> searchProductList(String keywords) {
+
+        /**
+         * CDI STEP 6 - Get creative with your pojo, and look no hands! It's just here by magic.
+         */
+        keywords = cdiPojo.fixMePlease(keywords);
+
         final List<Product> products = new ArrayList<Product>();
         for (final String keyword : keywords.split("\\s+")) {
             products.addAll(productMapper.searchProductList("%" + keyword.toLowerCase() + "%"));

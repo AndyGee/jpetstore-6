@@ -75,7 +75,7 @@
         </plugin>
 
         <!--
-        Arquillian Step 7 - Arquillian prefers at least surefire version 2.17
+        ARQUILLIAN STEP 7 - Arquillian prefers at least surefire version 2.17
         See https://developer.jboss.org/wiki/WhatVersionOfSurefireShouldIUseToRunMyArquillianTestsInAMavenBuild
         -->
         <plugin>
@@ -95,10 +95,12 @@
         </plugin>
 
         <!--
-        TomEE Step ?
+        TOMEE STEP 3
 
         TomEE plugin which can be used to run the project from the command line using: mvn tomee:run
         Full documentation can be found here - http://tomee.apache.org/maven/index.html
+
+        This is management here - It says "Use this version globally"
         -->
         <plugin>
           <groupId>org.apache.openejb.maven</groupId>
@@ -133,18 +135,18 @@
 
   </build>
 
+      <!--We are going to be writing unit tests and want this version consistent accross all modules.-->
   <dependencyManagement>
     <dependencies>
 
-      <!--Arquillian Step 1-->
-      <!--We are going to be writing unit tests and want this version consistent accross all modules.-->
+      <!--ARQUILLIAN STEP 1 - We need a test framework-->
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>4.11</version>
       </dependency>
 
-      <!--Arquillian Step 2 - We are going to be writing Arquillian unit tests and want this version consistent.-->
+      <!--ARQUILLIAN STEP 2 - We are going to be writing Arquillian unit tests and want this version consistent.-->
       <dependency>
         <groupId>org.jboss.arquillian</groupId>
         <artifactId>arquillian-bom</artifactId>
@@ -158,14 +160,14 @@
 
   <dependencies>
 
-    <!--Arquillian Step 3 - Use JUnit for all unit tests.-->
+    <!--ARQUILLIAN STEP 3 - Use JUnit for all unit tests.-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
 
-    <!--Arquillian Step 4 - Use the TomEE remote adapter for all Arquillian tests.-->
+    <!--ARQUILLIAN STEP 4 - Use the TomEE remote adapter for all Arquillian tests.-->
     <dependency>
       <groupId>org.apache.openejb</groupId>
       <artifactId>arquillian-tomee-remote</artifactId>
@@ -179,7 +181,7 @@
     </dependency>
 
     <!--
-    TomEE Step ?
+    TOMEE STEP 5
 
     Optional. Just provides some useful util classes for testing
     -->
@@ -290,10 +292,15 @@
     </dependency>
 
     <!--
-    TomEE Step 2
+    TOMEE STEP 1 - If you're running your application on TomEE,
+    well that's step 1 covered already.
 
-    We are going to be writing Java EE6 components. Therefore, we need to add the Java EE6 API to the classpath
-    so we can compile these components. The container provides this jar, so a scope of provided is OK.
+    TOMEE STEP 2 - Introduce the JavaEE API
+
+    We are going to be writing Java EE6 components. Therefore,
+    we need to add the Java EE6 API to the classpath so we can
+    compile these components. The container provides this jar,
+    so a scope of provided is OK.
 
     This is the official TomEE endorsed library.
     -->
@@ -305,7 +312,7 @@
     </dependency>
 
     <!--
-    Arquillian Step 5 - We are going to be writing Arquillian unit tests.
+    ARQUILLIAN STEP 5 - We are going to be writing Arquillian unit tests.
     -->
     <dependency>
       <groupId>org.jboss.arquillian.junit</groupId>
@@ -314,7 +321,7 @@
     </dependency>
 
     <!--
-    Arquillian Step 6 - We will want to try some real world client testing in our unit tests
+    ARQUILLIAN STEP 6 - We will want to try some real world client testing in our unit tests
     -->
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>

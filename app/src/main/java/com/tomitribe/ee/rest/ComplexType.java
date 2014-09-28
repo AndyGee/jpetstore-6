@@ -17,7 +17,7 @@
  *
  */
 /**
- * REST Step 3 - Here is a complex type that can be mapped to XML using JAXB
+ * REST STEP 3 - Here is a complex type that is mappable to XML using JAXB
  */
 package com.tomitribe.ee.rest;
 

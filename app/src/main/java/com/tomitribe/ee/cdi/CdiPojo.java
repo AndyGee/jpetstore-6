@@ -15,13 +15,13 @@
  *  limitations under the License.
  */
 /**
- * CDI Step 2 - Create a pojo and optionally give it a name.
+ * CDI STEP 2 - Create a pojo and optionally give it a name.
  */
 package com.tomitribe.ee.cdi;
 
 import java.io.Serializable;
 
-@javax.inject.Named("cdipojo") //Allows use in Unified Expression Language (EL)
+@javax.inject.Named("cdipojo") //This allows use in Unified Expression Language (EL)
 public class CdiPojo implements Serializable {
 
     private String absolutelyAnything = "Something";
@@ -34,7 +34,12 @@ public class CdiPojo implements Serializable {
         this.absolutelyAnything = absolutelyAnything;
     }
 
-    public String messWithMe(final String s) {
+    public String fixMePlease(final String s) {
+
+        if("fishh".equalsIgnoreCase(s)){
+            return "fish";
+        }
+
         return s;
     }
 }

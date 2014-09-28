@@ -17,11 +17,13 @@
     limitations under the License.
 -->
 <!--
-CDI Step 1
+CDI STEP 1
 
 An application that uses CDI must have a file named beans.xml.
-The file can be completely empty (it has content only in certain limited situations), but it must be present.
-For a web application, the beans.xml file must be in the WEB-INF directory.
-For EJB modules or JAR files, the beans.xml file must be in the META-INF directory.
+The file can be completely empty (it has content only in certain limited situations),
+but it must be present.
+
+For a web application the beans.xml file must be placed in the WEB-INF directory.
+For EJB modules or plain JAR files the beans.xml file must be in the META-INF directory.
 //-->
 <beans/>

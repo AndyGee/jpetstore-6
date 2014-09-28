@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 
 /**
- * Arquillian Step 9 - Our first Arquillian test
+ * ARQUILLIAN STEP 9 - Our first, and very basic, Arquillian test
  */
 @RunWith(Arquillian.class)
 public class TestArquillianBasic {

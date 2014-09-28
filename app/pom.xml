@@ -50,10 +50,14 @@
       </plugin>
 
       <!--
-      TomEE Step ?
+      TOMEE STEP 4
 
       TomEE plugin which can ve used to run the project from the command line using: mvn tomee:run
       Full documentation can be found here - http://tomee.apache.org/maven/index.html
+
+      This is where we want to use the TomEE plugin defined in the management.
+      The classifier defines the TomEE package we want to use. "plus" is the
+      fully loaded version with all the bells and whistles.
       -->
       <plugin>
         <groupId>org.apache.openejb.maven</groupId>

@@ -51,12 +51,12 @@ public class ClientRs {
                 try {
 
                     /**
-                     * REST Step ? - Call the REST service using a client API
+                     * REST STEP 4 - Call the REST service using a client API
                      *
                      * EE6 skipped a beat here by not defining a client API
-                     * This is a CXF client API, which makes sense as this is what TomEE uses
+                     * This is a CXF client API, which makes sense as this is what
+                     * TomEE uses server side.
                      */
-
                     final List<Object> providers = new ArrayList<Object>();
                     providers.add(new JSONProvider());
 
