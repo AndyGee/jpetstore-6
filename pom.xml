@@ -35,7 +35,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.reportEncoding>UTF-8</project.build.reportEncoding>
     <version.spring>4.0.5.RELEASE</version.spring>
-    <version.tomee>1.7.2-SNAPSHOT</version.tomee>
+    <version.tomee>1.7.1</version.tomee>
+    <version.openejb>4.7.1</version.openejb>
   </properties>
 
   <scm>
@@ -181,9 +182,9 @@
     </dependency>
 
     <!--
-    TOMEE STEP 5
+    TOMEE STEP 5 - Just provide some useful util classes for testing
 
-    Optional. Just provides some useful util classes for testing
+    Optional.
     -->
     <dependency>
       <groupId>org.apache.openejb</groupId>
@@ -191,6 +192,20 @@
       <version>${version.tomee}</version>
       <scope>test</scope>
     </dependency>
+
+    <!--
+    JPA STEP 1 - Pull in optional persistence dependencies.
+
+    TomEE includes the home grown OpenJPA, but you can pull in
+    Hibernate or EclipseLink by adding a simple dependency.
+
+    <dependency>
+      <groupId>org.apache.openejb</groupId>
+      <artifactId>openejb-core-hibernate</artifactId>
+      <version>${version.openejb}</version>
+      <type>pom</type>
+    </dependency>
+    -->
 
     <dependency>
       <groupId>org.mybatis</groupId>

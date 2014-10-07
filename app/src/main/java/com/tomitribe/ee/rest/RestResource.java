@@ -50,8 +50,8 @@ public class RestResource {
     }
 
     /**
-     * REST STEP 2 - Something complex, because we are not only going to need
-     * native types. Look at the class fot some detail.
+     * REST STEP 4 - Expose something complex, because we are not only going to need
+     * native types. Look at the class for some detail of what we are returning.
      */
     @Path("complex")
     @GET

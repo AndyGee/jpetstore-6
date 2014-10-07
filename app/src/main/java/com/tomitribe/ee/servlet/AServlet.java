@@ -14,30 +14,19 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-/**
- * REST STEP 2 - Representational state transfer Service Application
- *
- * Required in multipurpose applications to separate name space.
- * A standalone API would not need this, but it makes for good
- * practice, should you ever need to change the purpose of the app.
- *
- */
-package com.tomitribe.ee.rest;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+package com.tomitribe.ee.servlet;
 
-@ApplicationPath("/api")
-public class RestApplication extends Application {
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-    @SuppressWarnings("unchecked")
-    @Override
-    public Set<Class<?>> getClasses() {
-        return new HashSet<Class<?>>(Arrays.asList(
-            RestResource.class
-        ));
+@WebServlet("/a-servlet")
+public class AServlet extends HttpServlet {
+    protected void service(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().write("ok=true");
     }
 }

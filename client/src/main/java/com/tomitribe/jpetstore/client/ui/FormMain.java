@@ -68,7 +68,7 @@ public class FormMain implements ActionListener {
     public void setComplexType(final ComplexType ct) {
 
         /**
-         * REST STEP 5 - Nothing to do with REST here, but a nice example
+         * REST STEP 6 - Nothing to do with REST here, but a nice example
          * of ensuring cross thread safety.
          */
 
@@ -92,8 +92,8 @@ public class FormMain implements ActionListener {
         try {
 
             /**
-             * REST STEP 6 - Use the REST supplied object as you wish.
-             * Just going to display in our form for you to see.
+             * REST STEP 7 - Use the REST supplied object as you wish.
+             * Just going to display it here in our form for you to see.
              *
              * This is the end of the REST trail, have fun with it!
              */

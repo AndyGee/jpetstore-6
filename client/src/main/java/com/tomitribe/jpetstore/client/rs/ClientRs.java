@@ -51,7 +51,7 @@ public class ClientRs {
                 try {
 
                     /**
-                     * REST STEP 4 - Call the REST service using a client API
+                     * REST STEP 5 - Call the REST service using a client API
                      *
                      * EE6 skipped a beat here by not defining a client API
                      * This is a CXF client API, which makes sense as this is what

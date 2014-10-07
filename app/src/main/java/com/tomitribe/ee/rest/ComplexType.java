@@ -21,13 +21,30 @@
  */
 package com.tomitribe.ee.rest;
 
-import org.mybatis.jpetstore.domain.Product;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class ComplexType extends Product {
+public class ComplexType {
+
+    private String name;
+    private String description;
 
     public ComplexType() {
+    }
+
+    public void setName(final String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setDescription(final String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
