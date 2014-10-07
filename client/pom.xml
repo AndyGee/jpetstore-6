@@ -24,6 +24,7 @@
       <groupId>org.mybatis</groupId>
       <artifactId>app</artifactId>
       <version>${project.version}</version>
+      <classifier>classes</classifier>
     </dependency>
 
     <dependency>
