@@ -50,7 +50,7 @@
       </plugin>
 
       <!--
-      TOMEE STEP 4
+      TOMEE STEP 4 - Enable the TomEE Maven Plugin
 
       TomEE plugin which can ve used to run the project from the command line using: mvn tomee:run
       Full documentation can be found here - http://tomee.apache.org/maven/index.html

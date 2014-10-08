@@ -46,7 +46,7 @@ public class RestResource {
 
     @POST
     public String lowerCase(final String message) {
-        return "Hi REST!".toLowerCase();
+        return "Hi REST: " + message.toLowerCase();
     }
 
     /**
@@ -60,7 +60,7 @@ public class RestResource {
         final ComplexType ct = new ComplexType();
 
         ct.setName("Just a simple example");
-        ct.setDescription("But you get the picture of how complex it could be");
+        ct.setDescription("But you get the picture of how complex it could be right?");
 
         return ct;
     }

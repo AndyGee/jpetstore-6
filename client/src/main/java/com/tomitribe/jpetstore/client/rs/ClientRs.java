@@ -38,7 +38,6 @@ public class ClientRs {
     }
 
     public ClientRs() {
-        super();
     }
 
     public void callComplexType(final FormMain formMain) {

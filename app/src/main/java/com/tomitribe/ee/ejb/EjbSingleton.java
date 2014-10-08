@@ -22,20 +22,15 @@ package com.tomitribe.ee.ejb;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
-import javax.ejb.Asynchronous;
-import javax.ejb.Lock;
-import javax.ejb.LockType;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
-import javax.ejb.Timeout;
-import javax.ejb.Timer;
-import javax.ejb.TimerConfig;
-import javax.ejb.TimerService;
+import javax.ejb.*;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Singleton
 @Startup
 public class EjbSingleton {
+
+    private static final AtomicInteger id = new AtomicInteger(0);
 
     private Timer timer;
 
@@ -82,12 +77,16 @@ public class EjbSingleton {
     private final static Random random = new Random();
 
     private static final String[] list = new String[]{
-        "Wonder if I can print to the console?",
-        "Come and find me, haha!",
-        "Boo! that scared you",
-        "This bug could spoil your day...",
-        "Hmm, this looks broken...",
-        "Wake up and find me!",
-        "This is annoying I bet!",
+            "Wonder if I can print to the console?",
+            "Come and find me, haha!",
+            "Boo! that scared you",
+            "This bug could spoil your day...",
+            "Hmm, this looks broken...",
+            "Wake up and find me!",
+            "This is annoying I bet!",
     };
+
+    public int getNextId() {
+        return id.incrementAndGet();
+    }
 }

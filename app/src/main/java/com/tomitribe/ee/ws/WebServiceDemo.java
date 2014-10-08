@@ -18,10 +18,10 @@ package com.tomitribe.ee.ws;
 
 import javax.jws.WebService;
 
-@WebService(name = "MyService")
+@WebService
 public class WebServiceDemo {
 
     public String getMessage(){
-        return "Halo";
+        return "Halo, cool game";
     }
 }

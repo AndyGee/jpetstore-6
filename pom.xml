@@ -97,7 +97,7 @@
         </plugin>
 
         <!--
-        TOMEE STEP 3
+        TOMEE STEP 3 - Declare the TomEE Maven Plugin
 
         TomEE plugin which can be used to run the project from the command line using: mvn tomee:run
         Full documentation can be found here - http://tomee.apache.org/maven/index.html
@@ -196,7 +196,7 @@
     <!--ARQUILLIAN STEP 4 - Use the TomEE remote adapter for all Arquillian tests.-->
     <dependency>
       <groupId>org.apache.openejb</groupId>
-      <artifactId>arquillian-tomee-remote</artifactId>
+      <artifactId>arquillian-tomee-embedded</artifactId>
       <version>${version.tomee}</version>
       <exclusions>
         <exclusion>
@@ -207,7 +207,7 @@
     </dependency>
 
     <!--
-    TOMEE STEP 5 - Just provide some useful util classes for testing
+    TOMEE STEP 5 - Just provides some useful util classes for testing
 
     Optional.
     -->
@@ -330,10 +330,16 @@
       <artifactId>hsqldb</artifactId>
       <version>2.3.2</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.openejb</groupId>
+      <artifactId>tomee-webservices</artifactId>
+      <version>${version.tomee}</version>
+      <scope>test</scope>
+    </dependency>
 
     <!--
     TOMEE STEP 1 - If you're running your application on TomEE,
-    well that's step 1 covered already.
+    well that's step 1 covered already - Well done!
 
     TOMEE STEP 2 - Introduce the JavaEE API
 
@@ -368,6 +374,14 @@
       <artifactId>httpclient</artifactId>
       <version>4.3.4</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.shrinkwrap.resolver</groupId>
+      <artifactId>shrinkwrap-resolver-depchain</artifactId>
+      <version>2.1.1</version>
+      <scope>test</scope>
+      <type>pom</type>
     </dependency>
 
   </dependencies>

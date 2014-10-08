@@ -7,7 +7,7 @@ It is in no way a best practice application in regards to Java EE, rather a full
 There are several trails that you can follow step by step. Just use your IDE to search for all steps in all files.
 
 For example, in Intellij IDEA:  
- - Press CTRL+SHIFT+F and enter the trail you wish to follow, i.e 'TomEE Step' or 'CDI Step' 
+ - Press CTRL+SHIFT+F and enter the trail you wish to follow, i.e 'TOMEE STEP' or 'CDI STEP' 
  - Select the scope 'Whole project'
  - Uncheck the 'File mask'
  - Click on 'Find'
@@ -15,11 +15,12 @@ For example, in Intellij IDEA:
  - Follow the steps in order.
 
 ## STEP Trails To Follow:
- - TomEE - Start to use TomEE
- - CDI - Introduce CDI into you application
- - REST - Introduce RESTful WebServices into you application
- - WebService - Introduce SOAP WebServices into you application
- - Arquillian - Introduce Arquillian testing into you application
+ - TOMEE - Start to use TomEE
+ - CDI - Introduce CDI into your application
+ - REST - Introduce RESTful WebServices into your application
+ - EJB - Introduce Enterprise Java Beans into your application
+ - WEBSERVICE - Introduce SOAP WebServices into your application
+ - ARQUILLIAN - Introduce Arquillian testing into your application
 
 ## Running sample under eclipse
 Follow the next steps to run the sample on [Apache TomEE](http://tomee.apache.org/index.html), by using eclipse IDE

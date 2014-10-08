@@ -21,6 +21,7 @@ package com.tomitribe.jpetstore.client.ui;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.tomitribe.ee.rest.ComplexType;
+import com.tomitribe.jpetstore.client.ejb.ClientEJB;
 import com.tomitribe.jpetstore.client.rs.ClientRs;
 
 import javax.swing.*;
@@ -43,9 +44,11 @@ public class FormMain implements ActionListener {
     private JEditorPane txt_view;
     private JButton bt_complex;
     private JTextField txt_host;
+    private JButton bt_ejb;
 
     public FormMain() {
         bt_complex.addActionListener(this);
+        bt_ejb.addActionListener(this);
     }
 
     public JPanel getMain() {
@@ -62,6 +65,12 @@ public class FormMain implements ActionListener {
 
             //Asynchronous fire and forget
             new ClientRs().setUri(uri).callComplexType(this);
+        }else if (bt_ejb.equals(e.getSource())) {
+
+            bt_complex.setEnabled(false);
+
+            //Asynchronous fire and forget
+            new ClientEJB().callEJB(this);
         }
     }
 
@@ -100,6 +109,43 @@ public class FormMain implements ActionListener {
             final Document document = this.txt_view.getDocument();
             document.insertString(0, "\n", null);
             document.insertString(0, integer.getAndIncrement() + " - " + ct.getName() + " : " + ct.getDescription(), new SimpleAttributeSet());
+
+        } catch (final BadLocationException e) {
+            e.printStackTrace();
+        } finally {
+            bt_complex.setEnabled(true);
+        }
+    }
+
+    public void setEjbResult(final int i) {
+        final FormMain fm = FormMain.this;
+
+        final Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                fm.setEjbResult(i);
+            }
+        };
+
+        if (SwingUtilities.isEventDispatchThread()) {
+            r.run();
+        } else {
+            SwingUtilities.invokeLater(r);
+        }
+    }
+
+    public void safeSetEjbResult(final int i) {
+        try {
+
+            /**
+             * EJB STEP ? - Use the EJB supplied value as you wish.
+             * Just going to display it here in our form for you to see.
+             *
+             * This is the end of the EJB trail, have fun with it!
+             */
+            final Document document = this.txt_view.getDocument();
+            document.insertString(0, "\n", null);
+            document.insertString(0, "EJB result - " + i, new SimpleAttributeSet());
 
         } catch (final BadLocationException e) {
             e.printStackTrace();
@@ -151,4 +197,6 @@ public class FormMain implements ActionListener {
     public JComponent $$$getRootComponent$$$() {
         return p_main;
     }
+
+
 }
