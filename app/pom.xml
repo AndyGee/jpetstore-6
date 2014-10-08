@@ -75,6 +75,9 @@
         </configuration>
       </plugin>
 
+      <!--
+      Allows use of this WAR file classes as a dependency
+      -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
@@ -92,10 +95,11 @@
           <mainClass>org.apache.openjpa.jdbc.meta.ReverseMappingTool</mainClass>
           <commandlineArgs>
             -directory src/main/java -accessType fields
-            -useGenericCollections true -package org.yourproject.model
+            -useGenericCollections true -package com.tomitribe.ee.model
             -metadata none -annotations true
             -innerIdentityClasses false -useBuiltinIdentityClass false
             -primaryKeyOnJoin false
+            -p src/main/webapp/META-INF/persistence.xml
           </commandlineArgs>
           <includePluginDependencies>true</includePluginDependencies>
         </configuration>
@@ -103,12 +107,12 @@
           <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>1.0.CR3</version>
+            <version>1.0.0.GA</version>
           </dependency>
           <dependency>
             <groupId>org.apache.openjpa</groupId>
             <artifactId>openjpa-all</artifactId>
-            <version>2.0.1</version>
+            <version>2.3.0</version>
           </dependency>
         </dependencies>
       </plugin>
